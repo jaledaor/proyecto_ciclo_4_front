@@ -11,5 +11,14 @@ export class CrudVehiculosComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  VehiculoId="";
+  Placa="";
+  Tipo="";
+  Marca="";
+  Modelo=0;
+  NumeroPasajeros=0;
+  Cilindraje=0;
+  Pais="";
+  Descripcion="";
+  ClienteId="";
 }

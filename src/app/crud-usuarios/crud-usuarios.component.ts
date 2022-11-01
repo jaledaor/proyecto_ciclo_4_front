@@ -3,13 +3,29 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-crud-usuarios',
   templateUrl: './crud-usuarios.component.html',
-  styleUrls: ['./crud-usuarios.component.scss']
+  styleUrls: ['./crud-usuarios.component.scss',]
 })
+
+
 export class CrudUsuariosComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  ClienteId="";
+  Nombre="";
+  Apellido="";
+  Telefono=0;
+  Correo="";
+  CiudadResidencia="";
+  FechaNacimiento="";
+  Contrasenia="";
+  Rol="";
+
+  sumar() {
+    window.alert("Hello world!");
+  }
 
 }
+
