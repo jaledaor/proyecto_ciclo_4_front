@@ -1,0 +1,80 @@
+<app-layout>
+  <div topbar>Topbar</div>
+  <div sidemenu><app-side-menu></app-side-menu></div>
+  <div body>
+    <div class="contenedor">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="MecanicoId"
+          type="text"
+          placeholder="Ingrese el # de identificación del Mecánico"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="Nombre"
+          type="text"
+          placeholder="Ingrese el Nombre"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="Apellido"
+          type="text"
+          placeholder="Ingrese el Apellido"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="Telefono"
+          type="number"
+          placeholder="Ingrese el valor del Telefono"
+          minlength="7"
+          maxlength="10"
+          min="1000000"
+          max="9999999999"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <select
+          matNativeControl
+          required
+          [(ngModel)]="NivelEstudio"
+          placeholder="Seleccione el valor para su Ciudad de Residencia"
+        >
+          <option value="Armenia">Armenia</option>
+          <option value="Bogotá">Bogotá</option>
+          <option value="Barranquilla">Barranquilla</option>
+          <option value="Cali">Cali</option>
+          <option value="Manizales">Manizales</option>
+          <option value="Medellin">Medellin</option>
+          <option value="Pasto">Pasto</option>
+          <option value="Pereira">Pereira</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field>
+        <select
+          matNativeControl
+          required
+          [(ngModel)]="Rol"
+          placeholder="Seleccione el Rol Asignado"
+        >
+          <option value="Mecánico">Mecánico</option>
+        </select>
+      </mat-form-field>
+      <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
+      <button mat-raised-button color="primary" type="submit">Crear Mecánico</button>
+    </div>
+  </div>
+  <div footer>Pie de pagina</div>
+</app-layout>
+
+  
