@@ -20,6 +20,8 @@ import { CrudRepuestosComponent } from './componentes/crud-repuestos/crud-repues
 import { CrudRevisionesComponent } from './componentes/crud-revisiones/crud-revisiones.component';
 import { UsuariosService } from './servicios/usuarios.service';
 import { InicioComponent } from './vistas/inicio/inicio.component';
+import { LayoutComponent } from './componentes/layout/layout.component';
+import { SideMenuComponent } from './componentes/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { InicioComponent } from './vistas/inicio/inicio.component';
     CrudJefeOperacionesComponent,
     CrudRepuestosComponent,
     CrudRevisionesComponent,
-    InicioComponent
+    InicioComponent,
+    LayoutComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
