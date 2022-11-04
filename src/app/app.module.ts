@@ -18,10 +18,11 @@ import { CrudMecanicosComponent } from './componentes/crud-mecanicos/crud-mecani
 import { CrudJefeOperacionesComponent } from './componentes/crud-jefe-operaciones/crud-jefe-operaciones.component';
 import { CrudRepuestosComponent } from './componentes/crud-repuestos/crud-repuestos.component';
 import { CrudRevisionesComponent } from './componentes/crud-revisiones/crud-revisiones.component';
-import { UsuariosService } from './servicios/usuarios.service';
+import { ClienteService } from './servicios/cliente.service';
 import { InicioComponent } from './vistas/inicio/inicio.component';
 import { LayoutComponent } from './componentes/layout/layout.component';
 import { SideMenuComponent } from './componentes/side-menu/side-menu.component';
+import { ClienteComponent } from './vistas/cliente/cliente.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SideMenuComponent } from './componentes/side-menu/side-menu.component';
     CrudRevisionesComponent,
     InicioComponent,
     LayoutComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { SideMenuComponent } from './componentes/side-menu/side-menu.component';
     MatCardModule,
     MatNativeDateModule,
   ],
-  providers: [UsuariosService],
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

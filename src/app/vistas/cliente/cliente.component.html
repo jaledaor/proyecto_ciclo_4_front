@@ -1,0 +1,77 @@
+<div class="cliente-container">
+    <div class="cliente-topbar">
+        <p>{{ informacionCliente.Nombre }} {{ informacionCliente.Apellido }}</p>
+        <button mat-raised-button color="primary" routerLink="/">Salir</button>
+    </div>
+    <div class="cliente-sidenav">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcCR9Qg_yFyOD4CA6ITWOGJM02y9JqwwLLA&usqp=CAU" alt="">
+        <div class="cliente-informacion">
+            <p>Correo:</p>
+            <p>{{ informacionCliente.Correo }}</p>
+            <p>Telefono:</p>
+            <p>{{ informacionCliente.Telefono }}</p>
+            <p>Fecha nacimiento:</p>
+            <p>{{ informacionCliente.FechaNacimiento }}</p>
+            <p>Ciudad Residencia:</p>
+            <p>{{ informacionCliente.CiudadResidencia }}</p>
+            <button mat-raised-button color="primary">Agregar vehiculo</button>
+        </div >
+    </div>
+    <div class="cliente-body">
+        <form class="contenedor" [formGroup]="formulario">
+            <!-- <mat-form-field >
+                <input matInput formControlName="ClienteId" type="text"
+                    placeholder="Ingrese el # de identificación del Cliente" required/>
+            </mat-form-field> -->
+            <mat-form-field>
+                <input matInput formControlName="Nombre" type="text" placeholder="Ingrese el Nombre" required />
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="Apellido" type="text" placeholder="Ingrese el Apellido" required />
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="Telefono" type="number" placeholder="Ingrese el valor del Telefono"
+                    minlength="7" maxlength="10" min="1000000" max="9999999999" required />
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="Correo" type="email"
+                    placeholder="Ingrese el valor para el Correo Electrónico" required />
+            </mat-form-field>
+            <mat-form-field>
+                <select matNativeControl required formControlName="CiudadResidencia"
+                    placeholder="Seleccione el valor para su Ciudad de Residencia">
+                    <option value="Armenia">Armenia</option>
+                    <option value="Bogotá">Bogotá</option>
+                    <option value="Barranquilla">Barranquilla</option>
+                    <option value="Cali">Cali</option>
+                    <option value="Manizales">Manizales</option>
+                    <option value="Medellin">Medellin</option>
+                    <option value="Pasto">Pasto</option>
+                    <option value="Pereira">Pereira</option>
+                </select>
+            </mat-form-field>
+            <mat-form-field>
+                <!-- #docregion toggle -->
+                <input matInput [matDatepicker]="picker" formControlName="FechaNacimiento"
+                    placeholder="Ingrese el valor para la Fecha de Nacimiento" required />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <!-- #enddocregion toggle -->
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="Contrasenia" type="password"
+                    placeholder="Ingrese el valor para la Contraseña" required />
+            </mat-form-field>
+            <mat-form-field>
+                <select matNativeControl required formControlName="Rol" placeholder="Seleccione el Rol Asignado">
+                    <option value="Cliente">Propietario</option>
+                </select>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="editarCliente()" [disabled]="formulario.invalid">Editar informacion</button>
+        </form>
+        <div class="cliente-vehiculos">
+
+        </div>
+    </div>
+</div>

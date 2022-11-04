@@ -15,19 +15,10 @@ body {
   margin: 1rem auto;
   max-width: 600px;
   background-color: white;
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 10px;
+  padding: 1rem;
 }
-
-// .form {
-//   margin: 40px;
-//   display: flex;
-//   flex-direction: column;
-// //   position: absolute;
-//   padding: 1em 1.5em;
-//   outline: none;
-//   line-height: normal;
-//   border: 1px solid transparent;
-//   border-radius: 0;
-// }
 
 .login {
   position: relative;
@@ -37,13 +28,3 @@ body {
   margin: 10% auto;
 }
 
-.form-group {
-  position: relative;
-  top: 90%;
-  left: 8%;
-}
-
-.title {
-  text-align: center;
-  color: white;
-}
