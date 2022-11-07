@@ -48,4 +48,8 @@ export class ClienteComponent implements OnInit {
     this.clienteServicio.editarClientePorId(this.formulario.value as Cliente);
   }
 
+  test(){
+    console.log('hola');
+  }
+
 }
