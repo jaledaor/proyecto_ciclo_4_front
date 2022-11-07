@@ -8,6 +8,7 @@ import { CrudRepuestosComponent } from './componentes/crud-repuestos/crud-repues
 import { CrudRevisionesComponent } from './componentes/crud-revisiones/crud-revisiones.component';
 import { InicioComponent } from './vistas/inicio/inicio.component';
 import { ClienteComponent } from './vistas/cliente/cliente.component';
+import { RegistroClientesComponent } from './componentes/registro-clientes/registro-clientes.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'inicio', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'jefe-operaciones', component: CrudJefeOperacionesComponent},
   {path:'revisiones', component: CrudRevisionesComponent},
   {path:'repuestos', component: CrudRepuestosComponent},
-  {path: 'cliente', component: ClienteComponent}
+  {path: 'cliente/:clienteId', component: ClienteComponent},
+  {path: 'registro-cliente', component: RegistroClientesComponent},
 ];
 
 @NgModule({

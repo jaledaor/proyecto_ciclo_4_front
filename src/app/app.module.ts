@@ -12,17 +12,19 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { CrudMecanicosComponent } from './componentes/crud-mecanicos/crud-mecanicos.component';
 import { CrudJefeOperacionesComponent } from './componentes/crud-jefe-operaciones/crud-jefe-operaciones.component';
 import { CrudRepuestosComponent } from './componentes/crud-repuestos/crud-repuestos.component';
 import { CrudRevisionesComponent } from './componentes/crud-revisiones/crud-revisiones.component';
-import { ClienteService } from './servicios/cliente.service';
+import { ClienteService } from './servicios/cliente/cliente.service';
 import { InicioComponent } from './vistas/inicio/inicio.component';
 import { LayoutComponent } from './componentes/layout/layout.component';
 import { SideMenuComponent } from './componentes/side-menu/side-menu.component';
 import { ClienteComponent } from './vistas/cliente/cliente.component';
+import { BarraNavegacionComponent } from './componentes/barra-navegacion/barra-navegacion.component';
+import { RegistroClientesComponent } from './componentes/registro-clientes/registro-clientes.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ClienteComponent } from './vistas/cliente/cliente.component';
     InicioComponent,
     LayoutComponent,
     SideMenuComponent,
-    ClienteComponent
+    ClienteComponent,
+    BarraNavegacionComponent,
+    RegistroClientesComponent
   ],
   imports: [
     BrowserModule,

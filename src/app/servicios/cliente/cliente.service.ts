@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cliente } from '../interfaces/cliente.interface';
+import { Cliente } from '../../interfaces/cliente.interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -38,10 +38,10 @@ export class ClienteService {
     })
   }
 
-  crearClientePorId(body: any) {
+  crearCliente(body: Cliente) {
     this.http.post('http://localhost:3000/clientes', body).subscribe({
       next: (res) => {
-        console.log(res);
+        alert('Registro exitoso');
       }
     })
   }
