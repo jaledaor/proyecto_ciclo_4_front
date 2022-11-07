@@ -25,7 +25,6 @@ export class InicioComponent implements OnInit {
     this.formulario.markAllAsTouched();
     this.formulario.markAsDirty();
     if (this.formulario.invalid) return;
-    console.log(this.formulario.value);
     this.ingreso.ingreso(this.formulario.value as Credenciales);
   }
 

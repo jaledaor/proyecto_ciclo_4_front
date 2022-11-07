@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'usuarios', component: CrudUsuariosComponent},
   {path:'vehiculos', component: CrudVehiculosComponent},
   {path:'mecanicos', component: CrudMecanicosComponent},
-  {path:'jefe-operaciones', component: CrudJefeOperacionesComponent},
+  {path:'jefe-operaciones/:jefeOperacionesId', component: CrudJefeOperacionesComponent},
   {path:'revisiones', component: CrudRevisionesComponent},
   {path:'repuestos', component: CrudRepuestosComponent},
   {path: 'cliente/:clienteId', component: ClienteComponent},

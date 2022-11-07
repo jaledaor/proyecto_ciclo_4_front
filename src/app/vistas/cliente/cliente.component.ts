@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
 
@@ -11,6 +12,7 @@ import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
 export class ClienteComponent implements OnInit {
 
   informacionCliente!: Cliente;
+  clienteId!: Params;
 
   formulario = new FormGroup({
     ClienteId: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
@@ -24,11 +26,12 @@ export class ClienteComponent implements OnInit {
     Rol: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
   })
 
-  constructor(private clienteServicio: ClienteService) {
+  constructor(private clienteServicio: ClienteService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.clienteServicio.obtenerClientePorId('1130633379');
+    this.clienteId = this.route.snapshot.params;
+    this.clienteServicio.obtenerClientePorId(this.clienteId['clienteId']);
     this.clienteServicio.obtenerInformacionCliente().subscribe({
       next: (cliente) => {
         if(!cliente) return;
