@@ -17,15 +17,16 @@ import { RegistroClientesComponent } from '../componentes/registro-clientes/regi
 
 // Modulos
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
-import { RouterModule } from '@angular/router'
+import { MatTableModule } from '@angular/material/table';
 
 
 // Servicios
@@ -44,6 +45,7 @@ const MODULOS = [
   MatDatepickerModule,
   MatCardModule,
   MatNativeDateModule,
+  MatTableModule,
 ]
 
 const COMPONENTES = [

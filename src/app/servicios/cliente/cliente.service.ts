@@ -20,12 +20,14 @@ export class ClienteService {
     Telefono: 0
   });
 
+  private clientesLista = new BehaviorSubject<Cliente[]>([]);
+
   constructor(private http: HttpClient) {}
 
   obtenerClientes() {
-    this.http.get('http://localhost:3000/clientes/count').subscribe({
-      next: (count: any) => {
-        console.log(count);
+    this.http.get<Cliente[]>('http://localhost:3000/clientes').subscribe({
+      next: (clientes) => {
+        this.clientesLista.next(clientes);
       }
     })
   }
@@ -64,6 +66,10 @@ export class ClienteService {
 
   obtenerInformacionCliente() {
     return this.informacionCliente.asObservable();
+  }
+
+  obtenerListaClientes() {
+    return this.clientesLista.asObservable();
   }
 
 }

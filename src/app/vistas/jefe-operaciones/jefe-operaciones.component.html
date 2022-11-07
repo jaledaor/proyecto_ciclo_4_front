@@ -1,49 +1,27 @@
 <app-layout>
-    <div topbar>Topbar</div>
-    <div sidemenu>
-      <app-menu-lateral></app-menu-lateral>
+  <div topbar>Topbar</div>
+  <div sidemenu>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcCR9Qg_yFyOD4CA6ITWOGJM02y9JqwwLLA&usqp=CAU"
+      alt="">
+    <div class="cliente-info">
+      <h3>{{ (jefeOperacionesInfo$ | async)?.Nombre }} {{ (jefeOperacionesInfo$ | async)?.Apellido }}</h3>
+      <p class="cliente-info__title">Correo:</p>
+      <p>{{ (jefeOperacionesInfo$ | async)?.Correo }}</p>
+      <p class="cliente-info__title">Telefono:</p>
+      <p>{{ (jefeOperacionesInfo$ | async)?.Telefono }}</p>
+      <p class="cliente-info__title">Fecha nacimiento:</p>
+      <p>{{ (jefeOperacionesInfo$ | async)?.FechaNacimiento | date: 'longDate' }}</p>
     </div>
-    <div body>
-      <div class="contenedor">
-        <mat-form-field>
-          <input matInput [(ngModel)]="JefeOperacionesId" type="text"
-            placeholder="Ingrese el # de identificación del Cliente" required />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="Nombre" type="text" placeholder="Ingrese el Nombre" required />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="Apellido" type="text" placeholder="Ingrese el Apellido" required />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="Telefono" type="number" placeholder="Ingrese el valor del Telefono" minlength="7"
-            maxlength="10" min="1000000" max="9999999999" required />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="Correo" type="email" placeholder="Ingrese el valor para el Correo Electrónico"
-            required />
-        </mat-form-field>
-        <mat-form-field>
-          <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="picker" [(ngModel)]="FechaNacimiento"
-            placeholder="Ingrese el valor para la Fecha de Nacimiento" required />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <!-- #enddocregion toggle -->
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="Contrasenia" type="password" placeholder="Ingrese el valor para la Contraseña"
-            required />
-        </mat-form-field>
-        <mat-form-field>
-          <select matNativeControl required [(ngModel)]="Rol" placeholder="Seleccione el Rol Asignado">
-            <option value="JefeOperaciones">Jefe Operaciones</option>
-          </select>
-        </mat-form-field>
-        <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
-        <button mat-raised-button color="primary" type="submit">Crear Jefe Operaciones</button>
-      </div>
+  </div>
+  <div body>
+    <div>
+      <button mat-raised-button color="primary" routerLink="./clientes">Clientes</button>
+      <button mat-raised-button color="primary" routerLink="./vehiculos">Vehiculos</button>
+      <button mat-raised-button color="primary" routerLink="./mecanicos">Mecanicos</button>
+      <button mat-raised-button color="primary" routerLink="./repuestos">Repuestos</button>
+      <button mat-raised-button color="primary" routerLink="./revisiones">Revisiones</button>
     </div>
-    <div footer>Pie de pagina</div>
-  </app-layout>
+      <router-outlet></router-outlet>
+  </div>
+  <!-- <div footer>Pie de pagina</div> -->
+</app-layout>

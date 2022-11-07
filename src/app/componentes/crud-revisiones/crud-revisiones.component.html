@@ -1,96 +1,88 @@
-<app-layout>
-  <div topbar>Topbar</div>
-  <div sidemenu><app-menu-lateral></app-menu-lateral></div>
-  <div body>
-    <div class="contenedor">
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="RevisionId"
-          type="text"
-          placeholder="Ingrese el # de Id de la Revisión"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <!-- #docregion toggle -->
-        <input
-          matInput
-          [matDatepicker]="pickerIngreso"
-          [(ngModel)]="FechaEntrada"
-          placeholder="Ingrese el valor para la Fecha Ingreso a Revisión"
-          required
-        />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="pickerIngreso"></mat-datepicker-toggle>
-        <mat-datepicker #pickerIngreso></mat-datepicker>
-        <!-- #enddocregion toggle -->
-      </mat-form-field>
-      <mat-form-field>
-        <!-- #docregion toggle -->
-        <input
-          matInput
-          [matDatepicker]="pickerSalida"
-          [(ngModel)]="FechaSalida"
-          placeholder="Ingrese el valor para la Fecha Salida de la Revisión"
-          required
-        />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="pickerSalida"></mat-datepicker-toggle>
-        <mat-datepicker #pickerSalida></mat-datepicker>
-        <!-- #enddocregion toggle -->
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="Observaciones"
-          type="text"
-          placeholder="Ingrese el valor para las Obervaciones de la Revisión"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="vehiculoId"
-          type="text"
-          placeholder="Ingrese el valor para el ID del Vehiculo"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="repuestoId"
-          type="text"
-          placeholder="Ingrese el valor para el ID del Respuesto"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="mecanicoId"
-          type="text"
-          placeholder="Ingrese el valor para el Id del Mecánico"
-          required
-        />
-      </mat-form-field>
-      <!--<mat-form-field>
-        <select
-          matNativeControl
-          required
-          [(ngModel)]="Rol"
-          placeholder="Seleccione el Rol Asignado"
-        >
-          <option value="Cliente">Propietario</option>
-        </select>
-      </mat-form-field>-->
-      <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
-      <button mat-raised-button color="primary" type="submit">Crear Revisión</button>
-    </div>
-  </div>
-  <div footer>Pie de pagina</div>
-</app-layout>
-
+<div class="contenedor">
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="RevisionId"
+      type="text"
+      placeholder="Ingrese el # de Id de la Revisión"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <!-- #docregion toggle -->
+    <input
+      matInput
+      [matDatepicker]="pickerIngreso"
+      [(ngModel)]="FechaEntrada"
+      placeholder="Ingrese el valor para la Fecha Ingreso a Revisión"
+      required
+    />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="pickerIngreso"></mat-datepicker-toggle>
+    <mat-datepicker #pickerIngreso></mat-datepicker>
+    <!-- #enddocregion toggle -->
+  </mat-form-field>
+  <mat-form-field>
+    <!-- #docregion toggle -->
+    <input
+      matInput
+      [matDatepicker]="pickerSalida"
+      [(ngModel)]="FechaSalida"
+      placeholder="Ingrese el valor para la Fecha Salida de la Revisión"
+      required
+    />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="pickerSalida"></mat-datepicker-toggle>
+    <mat-datepicker #pickerSalida></mat-datepicker>
+    <!-- #enddocregion toggle -->
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="Observaciones"
+      type="text"
+      placeholder="Ingrese el valor para las Obervaciones de la Revisión"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="vehiculoId"
+      type="text"
+      placeholder="Ingrese el valor para el ID del Vehiculo"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="repuestoId"
+      type="text"
+      placeholder="Ingrese el valor para el ID del Respuesto"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="mecanicoId"
+      type="text"
+      placeholder="Ingrese el valor para el Id del Mecánico"
+      required
+    />
+  </mat-form-field>
+  <!--<mat-form-field>
+    <select
+      matNativeControl
+      required
+      [(ngModel)]="Rol"
+      placeholder="Seleccione el Rol Asignado"
+    >
+      <option value="Cliente">Propietario</option>
+    </select>
+  </mat-form-field>-->
+  <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
+  <button mat-raised-button color="primary" type="submit">Crear Revisión</button>
+</div>
 

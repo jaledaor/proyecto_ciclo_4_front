@@ -4,7 +4,7 @@ export interface JefeOperaciones {
     Apellido: string,
     Telefono: 0,
     Correo: string,
-    FechaNacimiento: string,
+    FechaNacimiento: Date,
     Contrasenia: string,
     Rol: string,
     NivelEstudio: string

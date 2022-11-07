@@ -12,6 +12,9 @@ import { ClienteService } from '../../servicios/cliente/cliente.service';
 
 export class CrudUsuariosComponent implements OnInit {
 
+  clientes!: Cliente[];
+  displayedColumns: string[] = ['ClienteId', 'Nombre', 'Correo', 'Telefono', 'Acciones'];
+
   formulario = new FormGroup({
     ClienteId: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
     Nombre: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
@@ -24,17 +27,22 @@ export class CrudUsuariosComponent implements OnInit {
     Rol: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
   })
 
-  constructor(private usuarioServicio: ClienteService) { }
+  constructor(private clienteServicio: ClienteService) { }
 
   ngOnInit(): void {
-
+    this.clienteServicio.obtenerClientes();
+    this.clienteServicio.obtenerListaClientes().subscribe({
+      next: (clientes) => {
+        this.clientes = clientes;
+      }
+    })
   }
 
   submit() {
     this.formulario.markAllAsTouched();
     this.formulario.markAsDirty();
     if (this.formulario.invalid) return;
-    this.usuarioServicio.crearCliente(this.formulario.value as Cliente);
+    this.clienteServicio.crearCliente(this.formulario.value as Cliente);
   }
 
 }
