@@ -1,20 +1,20 @@
 <app-layout>
   <div topbar>Topbar</div>
-  <div sidemenu>
+  <div sidemenu class="jefe-menu-lateral">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcCR9Qg_yFyOD4CA6ITWOGJM02y9JqwwLLA&usqp=CAU"
       alt="">
-    <div class="cliente-info">
+    <div>
       <h3>{{ (jefeOperacionesInfo$ | async)?.Nombre }} {{ (jefeOperacionesInfo$ | async)?.Apellido }}</h3>
-      <p class="cliente-info__title">Correo:</p>
+      <p class="jefe-menu-lateral-info__title">Correo:</p>
       <p>{{ (jefeOperacionesInfo$ | async)?.Correo }}</p>
-      <p class="cliente-info__title">Telefono:</p>
+      <p class="jefe-menu-lateral-info__title">Telefono:</p>
       <p>{{ (jefeOperacionesInfo$ | async)?.Telefono }}</p>
-      <p class="cliente-info__title">Fecha nacimiento:</p>
+      <p class="jefe-menu-lateral-info__title">Fecha nacimiento:</p>
       <p>{{ (jefeOperacionesInfo$ | async)?.FechaNacimiento | date: 'longDate' }}</p>
     </div>
   </div>
   <div body>
-    <div>
+    <div class="jefe-rutas">
       <button mat-raised-button color="primary" routerLink="./clientes">Clientes</button>
       <button mat-raised-button color="primary" routerLink="./vehiculos">Vehiculos</button>
       <button mat-raised-button color="primary" routerLink="./mecanicos">Mecanicos</button>

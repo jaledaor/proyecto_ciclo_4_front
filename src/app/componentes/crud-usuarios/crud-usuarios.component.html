@@ -1,93 +1,42 @@
-<table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+<div class="crud-cliente-contenedor">
+  <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar</button>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+  <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="ClienteId">
-    <th mat-header-cell *matHeaderCellDef> Cedula. </th>
-    <td mat-cell *matCellDef="let element"> {{element.ClienteId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="ClienteId">
+      <th mat-header-cell *matHeaderCellDef> Cedula. </th>
+      <td mat-cell *matCellDef="let element"> {{element.ClienteId}} </td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="Nombre">
-    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-    <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
-  </ng-container>
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="Correo">
-    <th mat-header-cell *matHeaderCellDef> Correo </th>
-    <td mat-cell *matCellDef="let element"> {{element.Correo}} </td>
-  </ng-container>
+    <ng-container matColumnDef="Correo">
+      <th mat-header-cell *matHeaderCellDef> Correo </th>
+      <td mat-cell *matCellDef="let element"> {{element.Correo}} </td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="Telefono">
-    <th mat-header-cell *matHeaderCellDef> Telefono </th>
-    <td mat-cell *matCellDef="let element"> {{element.Telefono}} </td>
-  </ng-container>
+    <ng-container matColumnDef="Telefono">
+      <th mat-header-cell *matHeaderCellDef> Telefono </th>
+      <td mat-cell *matCellDef="let element"> {{element.Telefono}} </td>
+    </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="Acciones">
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        <a (click)="abrirDialogo(element)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        </a>
+        <a (click)="eliminarCliente(element)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        </a>
       </td>
     </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
-<!-- <div class="contenedor" [formGroup]="formulario">
-  <mat-form-field>
-    <input matInput formControlName="ClienteId" type="text" placeholder="Ingrese el # de identificación del Cliente"
-      required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="Nombre" type="text" placeholder="Ingrese el Nombre" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="Apellido" type="text" placeholder="Ingrese el Apellido" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="Telefono" type="number" placeholder="Ingrese el valor del Telefono"
-      minlength="7" maxlength="10" min="1000000" max="9999999999" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="Correo" type="email" placeholder="Ingrese el valor para el Correo Electrónico"
-      required />
-  </mat-form-field>
-  <mat-form-field>
-    <select matNativeControl required formControlName="CiudadResidencia"
-      placeholder="Seleccione el valor para su Ciudad de Residencia">
-      <option value="Armenia">Armenia</option>
-      <option value="Bogotá">Bogotá</option>
-      <option value="Barranquilla">Barranquilla</option>
-      <option value="Cali">Cali</option>
-      <option value="Manizales">Manizales</option>
-      <option value="Medellin">Medellin</option>
-      <option value="Pasto">Pasto</option>
-      <option value="Pereira">Pereira</option>
-    </select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" formControlName="FechaNacimiento"
-      placeholder="Ingrese el valor para la Fecha de Nacimiento" required />
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="Contrasenia" type="password" placeholder="Ingrese el valor para la Contraseña"
-      required />
-  </mat-form-field>
-  <mat-form-field>
-    <select matNativeControl required formControlName="Rol" placeholder="Seleccione el Rol Asignado">
-      <option value="Cliente">Propietario</option>
-    </select>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="submit()" [disabled]="formulario.invalid">Crear
-    Cliente</button>
-</div> -->
+</div>

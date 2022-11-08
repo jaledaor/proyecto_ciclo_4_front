@@ -27,6 +27,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 // Servicios
@@ -46,6 +47,7 @@ const MODULOS = [
   MatCardModule,
   MatNativeDateModule,
   MatTableModule,
+  MatDialogModule
 ]
 
 const COMPONENTES = [

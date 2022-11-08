@@ -8,7 +8,7 @@
     .cliente-topbar {
         grid-column: 2/3;
         grid-row: 1;
-        background-color: rgb(180, 180, 180);
+        background-color: var(--color-segundario);
         position: relative;
         display: flex;
         align-items: center;
@@ -28,7 +28,7 @@
     .cliente-sidenav {
         grid-column: 1/2;
         grid-row: 1/3;
-        background-color: rgb(143, 143, 143);
+        background-color: var(--color-primario);
         color: white;
         display: flex;
         flex-direction: column;

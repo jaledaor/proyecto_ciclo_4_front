@@ -44,6 +44,7 @@ export class ClienteService {
     this.http.post('http://localhost:3000/clientes', body).subscribe({
       next: (res) => {
         alert('Registro exitoso');
+        this.obtenerClientes();
       }
     })
   }
@@ -52,6 +53,7 @@ export class ClienteService {
     this.http.put<any>(`http://localhost:3000/clientes/${body.ClienteId}`, body).subscribe({
       next: (res) => {
         this.obtenerClientePorId(body.ClienteId);
+        this.obtenerClientes();
       }
     })
   }
@@ -59,7 +61,7 @@ export class ClienteService {
   eliminarClientePorId(clienteId: string) {
     this.http.delete<any>(`http://localhost:3000/clientes/${clienteId}`).subscribe({
       next: (res) => {
-        console.log(res);
+        this.obtenerClientes();
       }
     })
   }
