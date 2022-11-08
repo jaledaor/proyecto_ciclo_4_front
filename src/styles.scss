@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --color-primario: #8f8f8f;
+  --color-segundario: #d6d6d6;
+}
+
+
 html,
 body {
   height: 100%;
@@ -10,24 +16,25 @@ body {
 }
 
 .contenedor {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   margin: 1rem auto;
-  max-width: 600px;
+  max-width: 900px;
   background-color: white;
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 10px;
+  padding: 1rem;
+  place-items: center;
+   
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
-
-// .form {
-//   margin: 40px;
-//   display: flex;
-//   flex-direction: column;
-// //   position: absolute;
-//   padding: 1em 1.5em;
-//   outline: none;
-//   line-height: normal;
-//   border: 1px solid transparent;
-//   border-radius: 0;
-// }
 
 .login {
   position: relative;
@@ -37,13 +44,14 @@ body {
   margin: 10% auto;
 }
 
-.form-group {
-  position: relative;
-  top: 90%;
-  left: 8%;
+.title-main {
+  font-size: 4rem;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.title {
-  text-align: center;
-  color: white;
+table {
+  width: 95%;
+  margin: 1rem auto;
 }
+

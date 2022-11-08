@@ -1,61 +1,54 @@
-<app-layout>
-  <div topbar>Topbar</div>
-  <div sidemenu><app-side-menu></app-side-menu></div>
-  <div body>
-    <div class="contenedor">
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="RepuestoId"
-          type="text"
-          placeholder="Ingrese el # de ID del Repuesto"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-          <select
-            matNativeControl
-            required
-            [(ngModel)]="Tipo"
-            placeholder="Seleccione el valor para el Tipo de Repuesto"
-          >
-            <option value="Lujo">Lujo</option>
-            <option value="Motor">Motor</option>
-            <option value="Accesorios">Accesorios</option>
-            <option value="Tornillos">Tornillos</option>
-            <option value="Transmisión">Transmisión</option>
-            <option value="Llantas">Llantas</option>
-          </select>
-        </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="Nombre"
-          type="text"
-          placeholder="Ingrese el Nombre del Repuesto"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="Cantidad"
-          type="number"
-          placeholder="Ingrese la Cantidad de Repuestos"
-          minlength="1"
-          maxlength="4"
-          min="1"
-          max="9999"
-          required
-        />
-      </mat-form-field>
-  
-      <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
-      <button mat-raised-button color="primary" type="submit">Crear Repuesto</button>
-    </div>
-  </div>
-  <div footer>Pie de pagina</div>
-</app-layout>
+<div class="contenedor">
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="RepuestoId"
+      type="text"
+      placeholder="Ingrese el # de ID del Repuesto"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+      <select
+        matNativeControl
+        required
+        [(ngModel)]="Tipo"
+        placeholder="Seleccione el valor para el Tipo de Repuesto"
+      >
+        <option value="Lujo">Lujo</option>
+        <option value="Motor">Motor</option>
+        <option value="Accesorios">Accesorios</option>
+        <option value="Tornillos">Tornillos</option>
+        <option value="Transmisión">Transmisión</option>
+        <option value="Llantas">Llantas</option>
+      </select>
+    </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="Nombre"
+      type="text"
+      placeholder="Ingrese el Nombre del Repuesto"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="Cantidad"
+      type="number"
+      placeholder="Ingrese la Cantidad de Repuestos"
+      minlength="1"
+      maxlength="4"
+      min="1"
+      max="9999"
+      required
+    />
+  </mat-form-field>
+
+  <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
+  <button mat-raised-button color="primary" type="submit">Crear Repuesto</button>
+</div>
 
 
   
