@@ -17,7 +17,7 @@ export class DialogoComponent implements OnInit {
     ClienteId: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     Nombre: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     Apellido: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    Telefono: new FormControl(0, { nonNullable: true, validators: [Validators.required] }),
+    Telefono: new FormControl(0, { nonNullable: true, validators: [Validators.required, Validators.minLength(7), Validators.maxLength(10)] }),
     Correo: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
     CiudadResidencia: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     FechaNacimiento: new FormControl(new Date(), { nonNullable: false }),
