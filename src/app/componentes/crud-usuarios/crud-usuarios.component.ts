@@ -71,6 +71,7 @@ export class CrudUsuariosComponent implements OnInit {
   }
 
   eliminarCliente(cliente: Cliente) {
+    alert("Esta eliminendo cliente");
     this.clienteServicio.eliminarClientePorId(cliente.ClienteId);
   }
 

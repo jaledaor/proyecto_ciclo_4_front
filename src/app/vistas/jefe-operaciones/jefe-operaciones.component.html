@@ -1,5 +1,8 @@
 <app-layout>
-  <div topbar>Topbar</div>
+  <div topbar class="jefe-topbar">
+    <p>{{ (jefeOperacionesInfo$ | async)?.Nombre }} {{ (jefeOperacionesInfo$ | async)?.Apellido }}</p>
+    <button mat-raised-button color="primary" routerLink="/">Salir</button>
+  </div>
   <div sidemenu class="jefe-menu-lateral">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcCR9Qg_yFyOD4CA6ITWOGJM02y9JqwwLLA&usqp=CAU"
       alt="">

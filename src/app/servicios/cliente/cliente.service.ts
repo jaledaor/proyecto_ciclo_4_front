@@ -52,6 +52,7 @@ export class ClienteService {
   editarClientePorId(body: Cliente) {
     this.http.put<any>(`http://localhost:3000/clientes/${body.ClienteId}`, body).subscribe({
       next: (res) => {
+        alert('Cliente editado');
         this.obtenerClientePorId(body.ClienteId);
         this.obtenerClientes();
       }

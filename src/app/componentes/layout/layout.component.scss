@@ -9,6 +9,8 @@
         grid-column: 2/3;
         grid-row: 1;
         background-color: var(--color-segundario);
+        display: flex;
+        align-items: center;
     }
 
     .layout-sidemenu {

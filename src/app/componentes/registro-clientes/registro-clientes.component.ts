@@ -33,7 +33,8 @@ export class RegistroClientesComponent implements OnInit {
     this.formulario.markAsDirty();
     if (this.formulario.invalid) return;
     this.clienteServicio.crearCliente(this.formulario.value as Cliente);
-    // this.router.navigate(['cliente']);
+    this.router.navigate(['inicio']);
+    // this.router.navigate(['cliente', this.formulario.value.ClienteId]);
   }
 
 }
