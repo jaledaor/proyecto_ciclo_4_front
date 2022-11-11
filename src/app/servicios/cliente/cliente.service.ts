@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from '../../interfaces/cliente.interface';
 import { BehaviorSubject } from 'rxjs';
+import { Vehiculo } from 'src/app/interfaces/vehiculo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,10 @@ export class ClienteService {
     FechaNacimiento: new Date(),
     Nombre: '',
     Rol: '',
-    Telefono: 0
+    Telefono: 0,
   });
+
+  private vehiculosLista = new BehaviorSubject<Vehiculo[]>([]);
 
   private clientesLista = new BehaviorSubject<Cliente[]>([]);
 
@@ -67,12 +70,24 @@ export class ClienteService {
     })
   }
 
+  obtenerVehiculosCliente(clienteId: string) {
+      this.http.get<Vehiculo[]>(`http://localhost:3000/clientes/${clienteId}/vehiculos`).subscribe({
+        next: (res) => {
+          this.vehiculosLista.next(res);
+        }
+      })
+  }
+
   obtenerInformacionCliente() {
     return this.informacionCliente.asObservable();
   }
 
   obtenerListaClientes() {
     return this.clientesLista.asObservable();
+  }
+
+  obtenerListaVehiculos() {
+    return this.vehiculosLista.asObservable();
   }
 
 }

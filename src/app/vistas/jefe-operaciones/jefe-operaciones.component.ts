@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JefeOperaciones } from 'src/app/interfaces/jefeoperaciones.interface';
-import { JefeOperacionesService } from 'src/app/servicios/jefe-operaciones.service';
+import { JefeOperacionesService } from 'src/app/servicios/jefe-operaciones/jefe-operaciones.service';
 
 @Component({
   selector: 'app-jefe-operaciones',

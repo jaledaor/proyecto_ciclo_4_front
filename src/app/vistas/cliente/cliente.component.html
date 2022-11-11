@@ -16,7 +16,7 @@
             <p>{{ informacionCliente.FechaNacimiento | date: 'longDate' }}</p>
             <p class="cliente-info__title">Ciudad Residencia:</p>
             <p>{{ informacionCliente.CiudadResidencia }}</p>
-            <button mat-raised-button color="primary">Agregar vehiculo</button>
+            <button mat-raised-button color="primary" (click)="abrirDialogo(informacionCliente)">Agregar vehiculo</button>
         </div>
     </div>
     <div class="cliente-body">
@@ -80,7 +80,43 @@
 
         </form>
         <div class="cliente-vehiculos">
+            <table mat-table [dataSource]="(vehiculos$ | async) ?? []" class="mat-elevation-z8">
 
+                <ng-container matColumnDef="Placa">
+                  <th mat-header-cell *matHeaderCellDef> Placa. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Placa}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Marca">
+                  <th mat-header-cell *matHeaderCellDef> Marca </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Marca}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Modelo">
+                  <th mat-header-cell *matHeaderCellDef> Modelo </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Modelo}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Cilindraje">
+                  <th mat-header-cell *matHeaderCellDef> Cilindraje </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Cilindraje}} </td>
+                </ng-container>
+            
+                <!-- <ng-container matColumnDef="Acciones">
+                  <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                  <td mat-cell *matCellDef="let element">
+                    <a (click)="abrirDialogo(element)">
+                      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+                    </a>
+                    <a (click)="eliminarCliente(element)">
+                      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+                    </a>
+                  </td>
+                </ng-container> -->
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
         </div>
     </div>
 </div>

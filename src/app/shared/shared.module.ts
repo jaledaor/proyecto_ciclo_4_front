@@ -14,6 +14,8 @@ import { InicioComponent } from '../vistas/inicio/inicio.component';
 import { ClienteComponent } from '../vistas/cliente/cliente.component';
 import { BarraNavegacionComponent } from '../componentes/barra-navegacion/barra-navegacion.component';
 import { RegistroClientesComponent } from '../componentes/registro-clientes/registro-clientes.component';
+import { DialogoComponent } from '../componentes/crud-usuarios/dialogo/dialogo.component';
+import { DialogoVehiculosComponent } from '../componentes/dialogo-vehiculos/dialogo-vehiculos.component';
 
 // Modulos
 import { HttpClientModule } from '@angular/common/http';
@@ -62,7 +64,9 @@ const COMPONENTES = [
   InicioComponent,
   ClienteComponent,
   BarraNavegacionComponent,
-  RegistroClientesComponent
+  RegistroClientesComponent,
+  DialogoComponent, 
+  DialogoVehiculosComponent
 ]
 
 @NgModule({
