@@ -20,7 +20,18 @@ export class ClienteComponent implements OnInit {
   clienteId!: Params;
   vehiculos$!: Observable<Vehiculo[]>;
   displayedColumns: string[] = ['Placa', 'Marca', 'Modelo', 'Cilindraje'];
-  agregarVehiculo: any;
+  agregarVehiculo: Vehiculo = {
+    VehiculoId: "",
+    Placa: "",
+    Tipo: "",
+    Marca: "",
+    Modelo: 0,
+    NumeroPasajeros: 0,
+    Cilindraje: 0,
+    Pais: "",
+    Descripcion: "",
+    clienteId: "",
+  }
 
   formulario = new FormGroup({
     ClienteId: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
@@ -62,19 +73,18 @@ export class ClienteComponent implements OnInit {
     this.clienteServicio.editarClientePorId(this.formulario.value as Cliente);
   }
 
-  abrirDialogo(cliente: Cliente = this.agregarVehiculo) {
+  abrirDialogo(vehiculo: Vehiculo = this.agregarVehiculo) {
     const dialogoRef = this.dialog.open(DialogoVehiculosComponent, {
-      width: '80vw',
+      width: '50vw',
       data: {
-        vehiculo: undefined,
-        clientes: cliente
+        vehiculo: vehiculo,
+        clientes: this.informacionCliente
       },
     });
     dialogoRef.afterClosed().subscribe(resultado => {
       if(!resultado) return;
       if(resultado.editar) {
-        console.log(resultado);
-        // this.clienteServicio.editarClientePorId(resultado.formulario);
+        this.vehiculoServicio.editarVehiculoPorId(resultado.formulario);
       } else this.vehiculoServicio.crearVehiculo(resultado.formulario)
     });
   }

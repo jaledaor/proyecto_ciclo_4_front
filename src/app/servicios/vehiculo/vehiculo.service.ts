@@ -64,7 +64,7 @@ export class VehiculoService {
   }
 
   eliminarVehiculoPorId(vehiculoId: string) {
-    this.http.delete<any>(`http://localhost:3000/clientes/${vehiculoId}`).subscribe({
+    this.http.delete<any>(`http://localhost:3000/vehiculos/${vehiculoId}`).subscribe({
       next: (res) => {
         this.obtenerVehiculos();
       }

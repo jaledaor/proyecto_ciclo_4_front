@@ -16,7 +16,7 @@
             <p>{{ informacionCliente.FechaNacimiento | date: 'longDate' }}</p>
             <p class="cliente-info__title">Ciudad Residencia:</p>
             <p>{{ informacionCliente.CiudadResidencia }}</p>
-            <button mat-raised-button color="primary" (click)="abrirDialogo(informacionCliente)">Agregar vehiculo</button>
+            <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar vehiculo</button>
         </div>
     </div>
     <div class="cliente-body">
@@ -116,7 +116,7 @@
             
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
+            </table>
         </div>
     </div>
 </div>

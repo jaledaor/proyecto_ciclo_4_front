@@ -13,7 +13,8 @@ import { CrudVehiculosComponent } from '../crud-vehiculos/crud-vehiculos.compone
 })
 export class DialogoVehiculosComponent implements OnInit {
 
-  editar: boolean = true;
+  editar: boolean = false;
+  clientes!: Cliente[];
 
   formulario = new FormGroup({
     VehiculoId: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
@@ -31,11 +32,12 @@ export class DialogoVehiculosComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ClienteComponent, CrudVehiculosComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
-  ngOnInit(): void {
-    if(this.data.vehiculo !== undefined) {
-      this.editar = false;
-      this.formulario.setValue(this.data.vehiculo);
+    ngOnInit(): void {
+    if(this.data.vehiculo.VehiculoId) {
+      this.editar = true;
+      this.formulario.patchValue(this.data.vehiculo);
     } 
+    this.clientes = this.data.clientes;
   }
 
   onNoClick(): void {

@@ -1,4 +1,46 @@
-<div class="contenedor">
+<div class="crud-vehiculo-contenedor">
+  <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar</button>
+    <table mat-table [dataSource]="(vehiculos$ | async) ?? []" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="Placa">
+        <th mat-header-cell *matHeaderCellDef> Placa. </th>
+        <td mat-cell *matCellDef="let element"> {{element.Placa}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Marca">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let element"> {{element.Marca}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Modelo">
+        <th mat-header-cell *matHeaderCellDef> Modelo </th>
+        <td mat-cell *matCellDef="let element"> {{element.Modelo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Cilindraje">
+        <th mat-header-cell *matHeaderCellDef> Cilindraje </th>
+        <td mat-cell *matCellDef="let element"> {{element.Cilindraje}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="abrirDialogo(element)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+          </a>
+          <a (click)="eliminarVehiculo(element)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<!-- <div class="contenedor">
+  <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar vehiculo</button>
   <mat-form-field>
     <input matInput [(ngModel)]="VehiculoId" type="text" placeholder="Ingrese el # de id del Vehículo" required />
   </mat-form-field>
@@ -38,7 +80,7 @@
     <input matInput [(ngModel)]="ClienteId" type="text" placeholder="Ingrese el valor para el Id del Propietario"
       required />
   </mat-form-field>
-  <!--<mat-form-field>
+  <mat-form-field>
         <select
           matNativeControl
           required
@@ -54,8 +96,7 @@
           <option value="Pasto">Pasto</option>
           <option value="Pereira">Pereira</option>
         </select>
-      </mat-form-field>-->
-  <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
+      </mat-form-field>
+  -<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>
   <button mat-raised-button color="primary" type="submit">Crear Vehículo</button>
-</div>
-
+</div> -->

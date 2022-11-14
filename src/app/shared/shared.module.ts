@@ -16,6 +16,7 @@ import { BarraNavegacionComponent } from '../componentes/barra-navegacion/barra-
 import { RegistroClientesComponent } from '../componentes/registro-clientes/registro-clientes.component';
 import { DialogoComponent } from '../componentes/crud-usuarios/dialogo/dialogo.component';
 import { DialogoVehiculosComponent } from '../componentes/dialogo-vehiculos/dialogo-vehiculos.component';
+import { DialogoMecanicoComponent } from '../componentes/dialogo-mecanico/dialogo-mecanico.component';
 
 // Modulos
 import { HttpClientModule } from '@angular/common/http';
@@ -66,7 +67,8 @@ const COMPONENTES = [
   BarraNavegacionComponent,
   RegistroClientesComponent,
   DialogoComponent, 
-  DialogoVehiculosComponent
+  DialogoVehiculosComponent, 
+  DialogoMecanicoComponent
 ]
 
 @NgModule({
