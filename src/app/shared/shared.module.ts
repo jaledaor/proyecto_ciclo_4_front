@@ -17,6 +17,9 @@ import { RegistroClientesComponent } from '../componentes/registro-clientes/regi
 import { DialogoComponent } from '../componentes/crud-usuarios/dialogo/dialogo.component';
 import { DialogoVehiculosComponent } from '../componentes/dialogo-vehiculos/dialogo-vehiculos.component';
 import { DialogoMecanicoComponent } from '../componentes/dialogo-mecanico/dialogo-mecanico.component';
+import { MecanicoComponent } from '../vistas/mecanico/mecanico.component'
+import { DialogoRepuestoComponent } from '../componentes/dialogo-repuesto/dialogo-repuesto.component';
+import { DialogoRevisionComponent } from '../componentes/dialogo-revision/dialogo-revision.component';
 
 // Modulos
 import { HttpClientModule } from '@angular/common/http';
@@ -68,7 +71,10 @@ const COMPONENTES = [
   RegistroClientesComponent,
   DialogoComponent, 
   DialogoVehiculosComponent, 
-  DialogoMecanicoComponent
+  DialogoMecanicoComponent, 
+  MecanicoComponent, 
+  DialogoRepuestoComponent,
+  DialogoRevisionComponent
 ]
 
 @NgModule({

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { Credenciales } from 'src/app/interfaces/credenciales.interface';
 import { JefeOperaciones } from 'src/app/interfaces/jefeoperaciones.interface';
+import { Mecanico } from 'src/app/interfaces/mecanico';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,15 @@ export class IngresoService {
           const clienteExiste = jefeoperaciones.find(j => j.JefeOperacionesId === datos.Id);
           if(clienteExiste) this.router.navigate(['jefe-operaciones', clienteExiste.JefeOperacionesId]);
           else alert('cliente no existe');
+        }
+      })
+    }
+    if(datos.Rol === 'Mecanico') {
+      this.http.get<Mecanico[]>(`http://localhost:3000/mecanicos/`).subscribe({
+        next: (mecanicos) => {
+          const clienteExiste = mecanicos.find(m => m.MecanicoId === datos.Id);
+          if(clienteExiste) this.router.navigate(['mecanico', clienteExiste.MecanicoId]);
+          else alert('Mecanico no existe');
         }
       })
     }
