@@ -38,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 // Servicios
 import { ClienteService } from '../servicios/cliente/cliente.service';
+import { DialogoDetalleComponent } from '../componentes/dialogo-detalle/dialogo-detalle.component';
 
 
 const MODULOS = [
@@ -74,7 +75,8 @@ const COMPONENTES = [
   DialogoMecanicoComponent, 
   MecanicoComponent, 
   DialogoRepuestoComponent,
-  DialogoRevisionComponent
+  DialogoRevisionComponent,
+  DialogoDetalleComponent
 ]
 
 @NgModule({

@@ -5,6 +5,7 @@ import { Cliente } from 'src/app/interfaces/cliente.interface';
 import { Vehiculo } from 'src/app/interfaces/vehiculo.interface';
 import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
 import { VehiculoService } from 'src/app/servicios/vehiculo/vehiculo.service';
+import { DialogoDetalleComponent } from '../dialogo-detalle/dialogo-detalle.component';
 import { DialogoVehiculosComponent } from '../dialogo-vehiculos/dialogo-vehiculos.component';
 
 @Component({
@@ -63,5 +64,14 @@ export class CrudVehiculosComponent implements OnInit {
   eliminarVehiculo(vehiculo: Vehiculo) {
     alert("Esta eliminando vehiculo");
     this.vehiculoServicio.eliminarVehiculoPorId(vehiculo.VehiculoId);
+  }
+
+  detallesVehiculo(vehiculo: Vehiculo) {
+    this.dialog.open(DialogoDetalleComponent, {
+      width: '50vw',
+      data: {
+        vehiculo: vehiculo,
+      },
+    });
   }
 }

@@ -31,6 +31,9 @@
           <a (click)="eliminarVehiculo(element)">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
           </a>
+          <a (click)="detallesVehiculo(element)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="info"></mat-icon>
+          </a>
         </td>
       </ng-container>
 
@@ -38,65 +41,3 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
-
-<!-- <div class="contenedor">
-  <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar vehiculo</button>
-  <mat-form-field>
-    <input matInput [(ngModel)]="VehiculoId" type="text" placeholder="Ingrese el # de id del Vehículo" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="Placa" type="text" placeholder="Ingrese el Valor de la Placa para el Vehículo"
-      required />
-  </mat-form-field>
-  <mat-form-field>
-    <select matNativeControl required [(ngModel)]="Tipo" placeholder="Seleccione el valor para el Tipo de Vehículo">
-      <option value="Buseta">Buseta</option>
-      <option value="Microbús">Microbús</option>
-    </select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="Marca" type="text" placeholder="Ingrese la Marca del Vehículo" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="Modelo" type="number" placeholder="Ingrese el Modelo del Vehículo" minlength="4"
-      maxlength="4" min="1900" max="2024" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="NumeroPasajeros" type="number"
-      placeholder="Ingrese el Numero de Pasajeros del Vehículo" minlength="1" maxlength="2" min="1" max="99" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="Cilindraje" type="number" placeholder="Ingrese el Valor del Cilindraje del Vehículo"
-      minlength="3" maxlength="4" min="100" max="9999" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="Pais" type="text" placeholder="Ingrese el valor para el Pais del Vehículo" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="Descripcion" type="text"
-      placeholder="Ingrese el valor para la Descripcion del Vehículo" required />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="ClienteId" type="text" placeholder="Ingrese el valor para el Id del Propietario"
-      required />
-  </mat-form-field>
-  <mat-form-field>
-        <select
-          matNativeControl
-          required
-          [(ngModel)]="ClienteId"
-          placeholder="Seleccione el valor para el Propietario del Vehículo"
-        >
-          <option value="Armenia">Armenia</option>
-          <option value="Bogotá">Bogotá</option>
-          <option value="Barranquilla">Barranquilla</option>
-          <option value="Cali">Cali</option>
-          <option value="Manizales">Manizales</option>
-          <option value="Medellin">Medellin</option>
-          <option value="Pasto">Pasto</option>
-          <option value="Pereira">Pereira</option>
-        </select>
-      </mat-form-field>
-  -<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>
-  <button mat-raised-button color="primary" type="submit">Crear Vehículo</button>
-</div> -->

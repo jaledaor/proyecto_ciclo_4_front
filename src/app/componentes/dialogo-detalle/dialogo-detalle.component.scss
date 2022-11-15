@@ -1,0 +1,16 @@
+.dialogo-detalle-contenedor {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+    h2 {
+        font-size: 2rem;
+        color: rgb(122, 0, 236);
+    }
+
+    .subtitle {
+        color: blueviolet;
+        margin: 0;
+    }
+}
