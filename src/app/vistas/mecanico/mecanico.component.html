@@ -1,0 +1,21 @@
+<div class="cliente-container">
+    <div class="cliente-topbar">
+        <p>{{ informacionMecanico.Nombre }} {{ informacionMecanico.Apellido }}</p>
+        <button mat-raised-button color="primary" routerLink="/">Salir</button>
+    </div>
+    <div class="cliente-sidenav">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcCR9Qg_yFyOD4CA6ITWOGJM02y9JqwwLLA&usqp=CAU"
+            alt="">
+        <div class="cliente-info">
+            <h3>{{ informacionMecanico.Nombre }} {{ informacionMecanico.Apellido }}</h3>
+            <p class="cliente-info__title">Dirección:</p>
+            <p>{{ informacionMecanico.Direccion }}</p>
+            <p class="cliente-info__title">Telefono:</p>
+            <p>{{ informacionMecanico.Telefono }}</p>
+            <p class="cliente-info__title">Fecha nacimiento:</p>
+            <p>{{ informacionMecanico.FechaNacimiento | date: 'longDate' }}</p>
+        </div>
+    </div>
+    <div class="cliente-body">
+    </div>
+</div>

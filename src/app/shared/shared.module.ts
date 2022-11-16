@@ -14,6 +14,12 @@ import { InicioComponent } from '../vistas/inicio/inicio.component';
 import { ClienteComponent } from '../vistas/cliente/cliente.component';
 import { BarraNavegacionComponent } from '../componentes/barra-navegacion/barra-navegacion.component';
 import { RegistroClientesComponent } from '../componentes/registro-clientes/registro-clientes.component';
+import { DialogoComponent } from '../componentes/crud-usuarios/dialogo/dialogo.component';
+import { DialogoVehiculosComponent } from '../componentes/dialogo-vehiculos/dialogo-vehiculos.component';
+import { DialogoMecanicoComponent } from '../componentes/dialogo-mecanico/dialogo-mecanico.component';
+import { MecanicoComponent } from '../vistas/mecanico/mecanico.component'
+import { DialogoRepuestoComponent } from '../componentes/dialogo-repuesto/dialogo-repuesto.component';
+import { DialogoRevisionComponent } from '../componentes/dialogo-revision/dialogo-revision.component';
 
 // Modulos
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 // Servicios
 import { ClienteService } from '../servicios/cliente/cliente.service';
+import { DialogoDetalleComponent } from '../componentes/dialogo-detalle/dialogo-detalle.component';
 
 
 const MODULOS = [
@@ -62,7 +69,14 @@ const COMPONENTES = [
   InicioComponent,
   ClienteComponent,
   BarraNavegacionComponent,
-  RegistroClientesComponent
+  RegistroClientesComponent,
+  DialogoComponent, 
+  DialogoVehiculosComponent, 
+  DialogoMecanicoComponent, 
+  MecanicoComponent, 
+  DialogoRepuestoComponent,
+  DialogoRevisionComponent,
+  DialogoDetalleComponent
 ]
 
 @NgModule({

@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>{{ editar ? 'Editar Vehiculo' : 'Agregar vehiculo' }}</h1>
+<div mat-dialog-content>
+<div class="contenedor" [formGroup]="formulario">
+  <mat-form-field *ngIf="!editar">
+    <input matInput formControlName="RepuestoId" type="text" placeholder="Ingrese el # de ID del Repuesto" required />
+  </mat-form-field>
+  <mat-form-field>
+    <select matNativeControl required formControlName="Tipo" placeholder="Seleccione el valor para el Tipo de Repuesto">
+      <option value="Lujo">Lujo</option>
+      <option value="Motor">Motor</option>
+      <option value="Accesorios">Accesorios</option>
+      <option value="Tornillos">Tornillos</option>
+      <option value="Transmisión">Transmisión</option>
+      <option value="Llantas">Llantas</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="Nombre" type="text" placeholder="Ingrese el Nombre del Repuesto" required />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="Cantidad" type="number" placeholder="Ingrese la Cantidad de Repuestos" minlength="1"
+      maxlength="4" min="1" max="9999" required />
+  </mat-form-field>
+</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button *ngIf="!editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: false }" 
+    [disabled]="formulario.invalid">Agregar</button>
+  <button *ngIf="editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: true }"
+    >Editar</button>
+</div>

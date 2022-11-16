@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>{{ editar ? 'Editar Mecanico' : 'Agregar Mecanico' }}</h1>
+<div mat-dialog-content>
+
+    <div class="contenedor" [formGroup]="formulario">
+        <mat-form-field  *ngIf="!editar">
+            <input matInput formControlName="MecanicoId" type="text"
+                placeholder="Ingrese el # de identificación del Mecánico" required />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Nombre" type="text" placeholder="Ingrese el Nombre" required />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Apellido" type="text" placeholder="Ingrese el Apellido" required />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Telefono" type="number" placeholder="Ingrese el valor del Telefono"
+                minlength="7" maxlength="10" min="1000000" max="9999999999" required />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Direccion" type="text" placeholder="Ingrese la dirección" required />
+        </mat-form-field>
+        <mat-form-field>
+            <select matNativeControl required formControlName="NivelEstudio" placeholder="Seleccione nivel estudio">
+                <option value="Tecnico">Tecnico</option>
+                <option value="Tecnologo">Tecnólogo</option>
+            </select>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <select matNativeControl required formControlName="CiudadResidencia" placeholder="Seleccione ciudad de residencia">
+                <option value="Armenia">Armenia</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Barranquilla">Barranquilla</option>
+                <option value="Cali">Cali</option>
+                <option value="Manizales">Manizales</option>
+                <option value="Medellin">Medellin</option>
+                <option value="Pasto">Pasto</option>
+                <option value="Pereira">Pereira</option>
+            </select>
+        </mat-form-field> -->
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" formControlName="FechaNacimiento"
+              placeholder="Ingrese el valor para la Fecha de Nacimiento" required />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Contrasenia" type="password" placeholder="Ingrese el valor para la Contraseña"
+              required />
+          </mat-form-field>
+        <mat-form-field>
+            <select matNativeControl required formControlName="Rol" placeholder="Seleccione el Rol Asignado">
+                <option value="Mecánico">Mecánico</option>
+            </select>
+        </mat-form-field>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button *ngIf="!editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: false }"
+        [disabled]="formulario.invalid">Agregar</button>
+    <button *ngIf="editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: true }">Editar</button>
+</div>

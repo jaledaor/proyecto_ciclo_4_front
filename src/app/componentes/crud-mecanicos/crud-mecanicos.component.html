@@ -1,73 +1,41 @@
-<div class="contenedor">
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="MecanicoId"
-      type="text"
-      placeholder="Ingrese el # de identificación del Mecánico"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="Nombre"
-      type="text"
-      placeholder="Ingrese el Nombre"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="Apellido"
-      type="text"
-      placeholder="Ingrese el Apellido"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="Telefono"
-      type="number"
-      placeholder="Ingrese el valor del Telefono"
-      minlength="7"
-      maxlength="10"
-      min="1000000"
-      max="9999999999"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <select
-      matNativeControl
-      required
-      [(ngModel)]="NivelEstudio"
-      placeholder="Seleccione el valor para su Ciudad de Residencia"
-    >
-      <option value="Armenia">Armenia</option>
-      <option value="Bogotá">Bogotá</option>
-      <option value="Barranquilla">Barranquilla</option>
-      <option value="Cali">Cali</option>
-      <option value="Manizales">Manizales</option>
-      <option value="Medellin">Medellin</option>
-      <option value="Pasto">Pasto</option>
-      <option value="Pereira">Pereira</option>
-    </select>
-  </mat-form-field>
-  <mat-form-field>
-    <select
-      matNativeControl
-      required
-      [(ngModel)]="Rol"
-      placeholder="Seleccione el Rol Asignado"
-    >
-      <option value="Mecánico">Mecánico</option>
-    </select>
-  </mat-form-field>
-  <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
-  <button mat-raised-button color="primary" type="submit">Crear Mecánico</button>
-</div>
-
+<div class="crud-mecanicos-contenedor">
+  <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar</button>
   
+  <table mat-table [dataSource]="(mecanicos$ | async) ?? []" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="MecanicoId">
+      <th mat-header-cell *matHeaderCellDef> Cedula. </th>
+      <td mat-cell *matCellDef="let element"> {{element.MecanicoId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Nivel estudio">
+      <th mat-header-cell *matHeaderCellDef> Nivel estudio </th>
+      <td mat-cell *matCellDef="let element"> {{element.NivelEstudio }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Telefono">
+      <th mat-header-cell *matHeaderCellDef> Telefono </th>
+      <td mat-cell *matCellDef="let element"> {{element.Telefono}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="abrirDialogo(element)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        </a>
+        <a (click)="eliminarMecanico(element)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

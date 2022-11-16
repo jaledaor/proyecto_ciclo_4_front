@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DialogoVehiculosComponent } from 'src/app/componentes/dialogo-vehiculos/dialogo-vehiculos.component';
 import { Cliente } from 'src/app/interfaces/cliente.interface';
+import { Vehiculo } from 'src/app/interfaces/vehiculo.interface';
 import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
+import { VehiculoService } from 'src/app/servicios/vehiculo/vehiculo.service';
 
 @Component({
   selector: 'app-cliente',
@@ -13,6 +18,20 @@ export class ClienteComponent implements OnInit {
 
   informacionCliente!: Cliente;
   clienteId!: Params;
+  vehiculos$!: Observable<Vehiculo[]>;
+  displayedColumns: string[] = ['Placa', 'Marca', 'Modelo', 'Cilindraje'];
+  agregarVehiculo: Vehiculo = {
+    VehiculoId: "",
+    Placa: "",
+    Tipo: "",
+    Marca: "",
+    Modelo: 0,
+    NumeroPasajeros: 0,
+    Cilindraje: 0,
+    Pais: "",
+    Descripcion: "",
+    clienteId: "",
+  }
 
   formulario = new FormGroup({
     ClienteId: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
@@ -26,7 +45,11 @@ export class ClienteComponent implements OnInit {
     Rol: new FormControl('', {nonNullable: true, validators: [Validators.required]}),
   })
 
-  constructor(private clienteServicio: ClienteService, private route: ActivatedRoute) {
+  constructor(
+    private clienteServicio: ClienteService,
+    private vehiculoServicio: VehiculoService,
+    private route: ActivatedRoute,
+    public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -39,6 +62,8 @@ export class ClienteComponent implements OnInit {
         this.formulario.setValue(cliente);
       }
     })
+    this.clienteServicio.obtenerVehiculosCliente(this.clienteId['clienteId']);
+    this.vehiculos$ = this.clienteServicio.obtenerListaVehiculos()
   }
 
   editarCliente() {
@@ -46,5 +71,21 @@ export class ClienteComponent implements OnInit {
     this.formulario.markAsDirty();
     if (this.formulario.invalid) return;
     this.clienteServicio.editarClientePorId(this.formulario.value as Cliente);
+  }
+
+  abrirDialogo(vehiculo: Vehiculo = this.agregarVehiculo) {
+    const dialogoRef = this.dialog.open(DialogoVehiculosComponent, {
+      width: '50vw',
+      data: {
+        vehiculo: vehiculo,
+        clientes: this.informacionCliente
+      },
+    });
+    dialogoRef.afterClosed().subscribe(resultado => {
+      if(!resultado) return;
+      if(resultado.editar) {
+        this.vehiculoServicio.editarVehiculoPorId(resultado.formulario);
+      } else this.vehiculoServicio.crearVehiculo(resultado.formulario)
+    });
   }
 }

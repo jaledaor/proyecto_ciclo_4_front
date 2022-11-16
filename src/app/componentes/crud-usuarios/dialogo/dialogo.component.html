@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{data.Nombre}}</h1>
+<h1 mat-dialog-title>Editar Cliente</h1>
 <div mat-dialog-content>
 <div class="contenedor" [formGroup]="formulario">
   <mat-form-field *ngIf="editar">
@@ -54,6 +54,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button *ngIf="editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: false }" cdkFocusInitial [disabled]="formulario.invalid">Agregar</button>
-  <button *ngIf="!editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: true }" cdkFocusInitial>Editar</button>
+  <button *ngIf="editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: false }" [disabled]="formulario.invalid">Agregar</button>
+  <button *ngIf="!editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: true }" >Editar</button>
 </div>

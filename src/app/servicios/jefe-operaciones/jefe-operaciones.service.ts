@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { JefeOperaciones } from '../interfaces/jefeoperaciones.interface';
+import { JefeOperaciones } from '../../interfaces/jefeoperaciones.interface';
 
 @Injectable({
   providedIn: 'root'

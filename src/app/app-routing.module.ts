@@ -8,6 +8,7 @@ import { CrudRevisionesComponent } from './componentes/crud-revisiones/crud-revi
 import { InicioComponent } from './vistas/inicio/inicio.component';
 import { ClienteComponent } from './vistas/cliente/cliente.component';
 import { RegistroClientesComponent } from './componentes/registro-clientes/registro-clientes.component';
+import { MecanicoComponent } from './vistas/mecanico/mecanico.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'revisiones', component: CrudRevisionesComponent},
   {path:'repuestos', component: CrudRepuestosComponent},
   {path: 'cliente/:clienteId', component: ClienteComponent},
+  {path: 'mecanico/:mecanicoId', component: MecanicoComponent},
   {path: 'registro-cliente', component: RegistroClientesComponent},
 ];
 

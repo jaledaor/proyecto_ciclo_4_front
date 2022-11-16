@@ -27,18 +27,6 @@ export class CrudUsuariosComponent implements OnInit {
     Telefono: 0
   }
 
-  // formulario = new FormGroup({
-  //   ClienteId: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  //   Nombre: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  //   Apellido: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  //   Telefono: new FormControl(0, { nonNullable: true, validators: [Validators.required] }),
-  //   Correo: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
-  //   CiudadResidencia: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  //   FechaNacimiento: new FormControl(new Date(), { nonNullable: false }),
-  //   Contrasenia: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  //   Rol: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  // })
-
   constructor(private clienteServicio: ClienteService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -49,13 +37,6 @@ export class CrudUsuariosComponent implements OnInit {
       }
     })
   }
-
-  // submit() {
-  //   this.formulario.markAllAsTouched();
-  //   this.formulario.markAsDirty();
-  //   if (this.formulario.invalid) return;
-  //   this.clienteServicio.crearCliente(this.formulario.value as Cliente);
-  // }
 
   abrirDialogo(cliente: Cliente = this.agregarCliente) {
     const dialogoRef = this.dialog.open(DialogoComponent, {

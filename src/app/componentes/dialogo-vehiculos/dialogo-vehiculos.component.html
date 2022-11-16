@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>{{ editar ? 'Editar Vehiculo' : 'Agregar vehiculo' }}</h1>
+<div mat-dialog-content>
+  <div class="contenedor" [formGroup]="formulario">
+    <mat-form-field *ngIf="!editar">
+      <input matInput formControlName="VehiculoId" type="text" placeholder="Ingrese el # de identificación del Vehiculo" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="Placa" type="text" placeholder="Ingrese la Placa" required />
+    </mat-form-field>
+    <mat-form-field>
+      <select matNativeControl required formControlName="Tipo" placeholder="Seleccione el valor para tipo">
+        <option value="Camion">Camion</option>
+        <option value="Automovil">Automovil</option>
+        <option value="Camioneta">Camioneta</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="Marca" type="text" placeholder="Ingrese la Marca" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="Modelo" type="number" placeholder="Ingrese el valor para el Modelo" 
+        minlength="4" maxlength="10" min="1000" max="9999" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="NumeroPasajeros" type="number" placeholder="Ingrese el valor pasajeros" 
+        minlength="1" maxlength="2" min="1" max="100" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="Cilindraje" type="number" placeholder="Ingrese el valor para cilindraje" 
+      minlength="4" maxlength="10" min="1000" max="9999" required />
+    </mat-form-field>
+    <mat-form-field>
+      <select matNativeControl required formControlName="Pais"
+        placeholder="Seleccione el valor para Pais">
+        <option value="EEUU">Estados Unidos</option>
+        <option value="Japon">Japon</option>
+        <option value="Alemania">Alemania</option>
+        <option value="Korea del norte">Corea del Norte</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="Descripcion" type="text" placeholder="Ingrese descripción" required />
+    </mat-form-field>
+    <mat-form-field>
+      <select matNativeControl required formControlName="clienteId" placeholder="Seleccione el valor para cliente">
+        <option *ngFor="let cliente of clientes" value="{{ cliente.ClienteId}}">{{ cliente.Nombre }}</option>
+      </select>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button *ngIf="!editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: false }" 
+    [disabled]="formulario.invalid">Agregar</button>
+  <button *ngIf="editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: true }"
+    >Editar</button>
+</div>
