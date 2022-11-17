@@ -1,88 +1,41 @@
-<div class="contenedor">
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="RevisionId"
-      type="text"
-      placeholder="Ingrese el # de Id de la Revisión"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <!-- #docregion toggle -->
-    <input
-      matInput
-      [matDatepicker]="pickerIngreso"
-      [(ngModel)]="FechaEntrada"
-      placeholder="Ingrese el valor para la Fecha Ingreso a Revisión"
-      required
-    />
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="pickerIngreso"></mat-datepicker-toggle>
-    <mat-datepicker #pickerIngreso></mat-datepicker>
-    <!-- #enddocregion toggle -->
-  </mat-form-field>
-  <mat-form-field>
-    <!-- #docregion toggle -->
-    <input
-      matInput
-      [matDatepicker]="pickerSalida"
-      [(ngModel)]="FechaSalida"
-      placeholder="Ingrese el valor para la Fecha Salida de la Revisión"
-      required
-    />
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="pickerSalida"></mat-datepicker-toggle>
-    <mat-datepicker #pickerSalida></mat-datepicker>
-    <!-- #enddocregion toggle -->
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="Observaciones"
-      type="text"
-      placeholder="Ingrese el valor para las Obervaciones de la Revisión"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="vehiculoId"
-      type="text"
-      placeholder="Ingrese el valor para el ID del Vehiculo"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="repuestoId"
-      type="text"
-      placeholder="Ingrese el valor para el ID del Respuesto"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="mecanicoId"
-      type="text"
-      placeholder="Ingrese el valor para el Id del Mecánico"
-      required
-    />
-  </mat-form-field>
-  <!--<mat-form-field>
-    <select
-      matNativeControl
-      required
-      [(ngModel)]="Rol"
-      placeholder="Seleccione el Rol Asignado"
-    >
-      <option value="Cliente">Propietario</option>
-    </select>
-  </mat-form-field>-->
-  <!---<button mat-raised-button color="primary" (click)="sumar()">Sumar</button>-->
-  <button mat-raised-button color="primary" type="submit">Crear Revisión</button>
-</div>
+<div class="crud-revisiones-contenedor">
+  <button mat-raised-button color="primary" (click)="abrirDialogo()">Agregar</button>
+  
+  <table mat-table [dataSource]="(revisiones$ | async) ?? []" class="mat-elevation-z8">
 
+    <ng-container matColumnDef="RevisionId">
+      <th mat-header-cell *matHeaderCellDef> Id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.RevisionId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="FechaEntrada">
+      <th mat-header-cell *matHeaderCellDef> Fecha entrada </th>
+      <td mat-cell *matCellDef="let element"> {{element.FechaEntrada | date: 'longDate' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="FechaSalida">
+      <th mat-header-cell *matHeaderCellDef> Fecha salida </th>
+      <td mat-cell *matCellDef="let element"> {{element.FechaSalida | date: 'longDate' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Observaciones">
+      <th mat-header-cell *matHeaderCellDef> Observaciones </th>
+      <td mat-cell *matCellDef="let element"> {{element.Observaciones}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="abrirDialogo(element)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        </a>
+        <a (click)="eliminarRepuesto(element)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
