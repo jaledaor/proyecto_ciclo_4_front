@@ -3,10 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DialogoRevisionComponent } from 'src/app/componentes/dialogo-revision/dialogo-revision.component';
 import { DialogoVehiculosComponent } from 'src/app/componentes/dialogo-vehiculos/dialogo-vehiculos.component';
 import { Cliente } from 'src/app/interfaces/cliente.interface';
+import { Revision } from 'src/app/interfaces/revision.interface';
 import { Vehiculo } from 'src/app/interfaces/vehiculo.interface';
 import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
+import { RevisionService } from 'src/app/servicios/revision/revision.service';
 import { VehiculoService } from 'src/app/servicios/vehiculo/vehiculo.service';
 
 @Component({
@@ -19,6 +22,7 @@ export class ClienteComponent implements OnInit {
   informacionCliente!: Cliente;
   clienteId!: Params;
   vehiculos$!: Observable<Vehiculo[]>;
+  vehiculos!: Vehiculo[];
   displayedColumns: string[] = ['Placa', 'Marca', 'Modelo', 'Cilindraje'];
   agregarVehiculo: Vehiculo = {
     VehiculoId: "",
@@ -31,6 +35,11 @@ export class ClienteComponent implements OnInit {
     Pais: "",
     Descripcion: "",
     clienteId: "",
+  }
+  revision: Revision = {
+    FechaEntrada: new Date(),
+    Observaciones: '',
+    RevisionId: '',
   }
 
   formulario = new FormGroup({
@@ -48,6 +57,7 @@ export class ClienteComponent implements OnInit {
   constructor(
     private clienteServicio: ClienteService,
     private vehiculoServicio: VehiculoService,
+    private revisionServicio: RevisionService,
     private route: ActivatedRoute,
     public dialog: MatDialog) {
   }
@@ -64,6 +74,11 @@ export class ClienteComponent implements OnInit {
     })
     this.clienteServicio.obtenerVehiculosCliente(this.clienteId['clienteId']);
     this.vehiculos$ = this.clienteServicio.obtenerListaVehiculos()
+    this.clienteServicio.obtenerListaVehiculos().subscribe({
+      next: (vehiculos) => {
+        this.vehiculos = vehiculos
+      }
+    })
   }
 
   editarCliente() {
@@ -86,6 +101,21 @@ export class ClienteComponent implements OnInit {
       if(resultado.editar) {
         this.vehiculoServicio.editarVehiculoPorId(resultado.formulario);
       } else this.vehiculoServicio.crearVehiculo(resultado.formulario)
+    });
+  }
+
+  abrirDialogoRevision() {
+    const dialogoRef = this.dialog.open(DialogoRevisionComponent, {
+      width: '65vw',
+      data: {
+        revision: this.revision,
+        vehiculos: this.vehiculos,
+        cliente: true
+      },
+    });
+    dialogoRef.afterClosed().subscribe(resultado => {
+      if (!resultado) return;
+      this.revisionServicio.crearRevision(resultado.formulario);
     });
   }
 }

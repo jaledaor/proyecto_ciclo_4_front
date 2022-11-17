@@ -1,1 +1,48 @@
-<p>dialogo-revision works!</p>
+<h1 mat-dialog-title>{{ editar ? 'Editar Revisión' : 'Agregar revisión' }}</h1>
+<div mat-dialog-content>
+    <div class="contenedor" [formGroup]="formulario">
+        <mat-form-field  *ngIf="!editar">
+            <input matInput formControlName="RevisionId" type="text" placeholder="Ingrese el # de Id de la Revisión"
+                required />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerIngreso" formControlName="FechaEntrada"
+                placeholder="Ingrese el valor para la Fecha Ingreso a Revisión" required />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerIngreso"></mat-datepicker-toggle>
+            <mat-datepicker #pickerIngreso></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field *ngIf="!desdeCliente">
+            <input matInput [matDatepicker]="pickerSalida" formControlName="FechaSalida"
+                placeholder="Ingrese el valor para la Fecha Salida de la Revisión" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerSalida"></mat-datepicker-toggle>
+            <mat-datepicker #pickerSalida></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="Observaciones" type="text"
+                placeholder="Ingrese el valor para las Obervaciones de la Revisión" required />
+        </mat-form-field>
+        <mat-form-field *ngIf="vehiculos">
+            <select matNativeControl formControlName="vehiculoId" placeholder="Seleccione el vehiculo">
+                <option *ngFor="let vehiculo of vehiculos" value="{{ vehiculo.VehiculoId}}">{{ vehiculo.Placa }}</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field *ngIf="repuestos">
+            <select matNativeControl formControlName="repuestoId" placeholder="Seleccione el repuesto">
+                <option *ngFor="let repuesto of repuestos" value="{{ repuesto.RepuestoId}}">{{ repuesto.Nombre }}</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field *ngIf="mecanicos">
+            <select matNativeControl formControlName="mecanicoId" placeholder="Asigne mecanico">
+                <option *ngFor="let mecanico of mecanicos" value="{{ mecanico.MecanicoId}}">{{ mecanico.Nombre }}</option>
+            </select>
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button *ngIf="!editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: false }"
+        [disabled]="formulario.invalid">Agregar</button>
+    <button *ngIf="editar" mat-button [mat-dialog-close]="{formulario: formulario.value, editar: true }">Editar</button>
+</div>

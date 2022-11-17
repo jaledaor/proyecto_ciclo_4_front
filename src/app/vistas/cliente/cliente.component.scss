@@ -41,10 +41,15 @@
         }
 
         .cliente-info {
+            text-align: center;
             
             .cliente-info__title {
                 font-weight: bold;
                 color:#673ab7;
+            }
+
+            button {
+                margin: 0.55rem auto;
             }
         }
     }
